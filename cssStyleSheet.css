@@ -1,0 +1,10 @@
+.led{
+    background-color: rgb(8, 8, 8);
+    border: black;
+    color: rgb(247, 240, 240);
+    text-align: center;
+    padding: 15px 32px;
+    margin: 4px 2px;
+    opacity: 0.5;
+    cursor: allowed;
+}

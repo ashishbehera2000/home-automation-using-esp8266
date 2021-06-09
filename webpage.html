@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <title>Home Automation System</title> <!-- This will be the page title -->
+  <link href="cssStyleSheet.css" rel="stylesheet" </head>
+
+<body>
+  <!-- All the data in it will be shown on the page -->
+  <center>
+    <h1>Home automation using Esp8266 and arduino uno</h1>
+  </center>
+  <div>
+    <center>
+      <button id="11" class="led">Bed room light</button>
+    </center> <!--  This will create the button for pin 11 -->
+  </div>
+  <div>
+    <center>
+      <button id="12" class="led">Bed room fan</button>
+    </center> <!--  This will create the button for pin 12 -->
+  </div>
+  <div>
+    <center>
+      <button id="13" class="led">Dining room light</button><!--  This will create the button for pin 13 -->
+    </center>
+  </div>
+  <div>
+    <center>
+      <button id="10" class="led">Dining room fan</button>
+    </center><!--  This will create the button for pin 13 -->
+  </div>
+  <script src="jquery.min.js"></script> <!-- This will read the script from the jquery -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(".led").click(function () {
+        var p = $(this).attr('id'); // Getting the id value that which pin to toggle, pin 13 or pin 13 or pin 11
+        if (p == 10) alert("dining room fan is clicked");
+        else if (p == 11) alert("bedroom light button is clicked");
+        else if (p == 12) alert("bed room fan is clicked");
+        else if (p == 13) alert("dining room light is clicked");
+        else alert("un-identified request");
+        $.get("http://192.168.4.1:80/", { pin: p }); // Sending the get request
+      });
+    });
+  </script>
+</body>
+
+</html>
